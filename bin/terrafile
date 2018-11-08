@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
-
+require_relative '../lib/terrafile'
 puts 'terrafile script FTW!'
+Terrafile::Installer.new.call

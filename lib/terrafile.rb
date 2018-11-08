@@ -1,6 +1,2 @@
-require 'terrafile/version'
-
-module Terrafile
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative 'terrafile/version'
+require_relative 'terrafile/installer'

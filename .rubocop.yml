@@ -1,0 +1,47 @@
+AllCops:
+  TargetRubyVersion: 2.5.1
+  # Exclude:
+
+Bundler/OrderedGems:
+    Enabled: false
+
+Style/Alias:
+    Enabled: false
+
+Style/FrozenStringLiteralComment:
+    Enabled: false
+
+Style/NumericLiterals:
+    Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+    EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+    EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+    Enabled: false
+
+Style/Documentation:
+    Enabled: false
+
+Style/FormatStringToken:
+    Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+    Enabled: false
+
+Metrics/LineLength:
+    Max: 100
+    Exclude:
+      - 'spec/**/*'
+      - 'features/**/*'
+
+Metrics/MethodLength:
+    Exclude:
+      - 'spec/**/*'
+
+Metrics/BlockLength:
+    Exclude:
+      - 'spec/**/*'
