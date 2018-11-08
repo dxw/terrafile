@@ -21,7 +21,7 @@ module Terrafile
 
     context 'when a Terrafile IS found' do
       let(:file)    { 'Terrafile' }
-      let(:content) { 'Not YAML' }
+      let(:content) { '' }
       let(:notice)  { 'Creating Terraform modules directory' }
 
       before(:each) { write_file file, content }

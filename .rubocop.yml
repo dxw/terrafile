@@ -42,6 +42,10 @@ Metrics/MethodLength:
     Exclude:
       - 'spec/**/*'
 
+Metrics/ModuleLength:
+    Exclude:
+      - 'spec/**/*'
+
 Metrics/BlockLength:
     Exclude:
       - 'spec/**/*'

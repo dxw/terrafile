@@ -1,7 +1,6 @@
 module Terrafile
   class Installer
     MODULES_PATH = 'vendor/terraform_modules'.freeze
-    TERRAFILE_PATH = 'Terrafile'.freeze
 
     def initialize
       @dependencies = read_terrafile
@@ -9,6 +8,7 @@ module Terrafile
 
     def call
       create_modules_directory_if_needed
+      checkout_modules
     end
 
     private
@@ -16,71 +16,32 @@ module Terrafile
     attr_reader :dependencies
 
     def read_terrafile
-      return YAML.safe_load(TERRAFILE_PATH) if File.exist?(TERRAFILE_PATH)
+      return built_dependencies if Helper.file_exists?(TERRAFILE_PATH)
 
       Kernel.puts '[*] Terrafile does not exist'
       Kernel.exit 1
     end
 
+    def built_dependencies
+      Dependency.build_from_terrafile
+    end
+
+    def checkout_modules
+      Dir.chdir(Installer::MODULES_PATH) do
+        dependencies.each do |dependency|
+          msg = "Checking out #{dependency.version} from #{dependency.source}"
+          Kernel.puts msg
+          dependency.fetch
+          dependency.checkout
+        end
+      end
+    end
+
     def create_modules_directory_if_needed
-      return if Dir.exist?(MODULES_PATH)
+      return if Helper.dir_exists?(MODULES_PATH)
 
       Kernel.puts "[*] Creating Terraform modules directory at '#{MODULES_PATH}'"
       FileUtils.makedirs MODULES_PATH
     end
   end
 end
-
-# def modules_path
-#   'vendor/terraform_modules'
-# end
-
-# def terrafile_path
-#   'Terrafile'
-# end
-
-# def read_terrafile
-#   if File.exist? terrafile_path
-#     YAML.load_file terrafile_path
-#   else
-#     fail('[*] Terrafile does not exist')
-#   end
-# end
-
-# def create_modules_directory
-#   unless Dir.exist? modules_path
-#     puts "[*] Creating Terraform modules directory at '#{modules_path}'"
-#     FileUtils.makedirs modules_path
-#   end
-# end
-
-# desc 'Fetch the Terraform modules listed in the Terrafile'
-# task :terrafile do
-#   terrafile = read_terrafile
-
-#   create_modules_directory
-
-#   terrafile.each do |module_name, repository_details|
-#     source  = repository_details['source']
-#     version = repository_details['version']
-#     puts "[*] Checking out #{version} of #{source} ..."
-
-#     Dir.mkdir(modules_path) unless Dir.exist?(modules_path)
-#     Dir.chdir(modules_path) do
-#       unless Dir.exist?("#{module_name}")
-#         `git clone #{source} #{module_name} &> /dev/null`
-#       else
-#         Dir.chdir("#{module_name}") do
-#           current_tag = `git describe --tags`.tr("\n",'')
-#           current_hash = `git rev-parse HEAD`.tr("\n",'')
-#           unless [current_tag, current_hash].include? version
-#             `git pull &> /dev/null`
-#           end
-#         end
-#       end
-#       Dir.chdir("#{module_name}") do
-#         `git checkout #{version} &> /dev/null`
-#       end
-#     end
-#   end
-# end
