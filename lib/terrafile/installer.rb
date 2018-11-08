@@ -3,12 +3,17 @@ module Terrafile
     MODULES_PATH = 'vendor/terraform_modules'.freeze
     TERRAFILE_PATH = 'Terrafile'.freeze
 
+    def initialize
+      @dependencies = read_terrafile
+    end
+
     def call
-      read_terrafile
       create_modules_directory_if_needed
     end
 
     private
+
+    attr_reader :dependencies
 
     def read_terrafile
       return YAML.safe_load(TERRAFILE_PATH) if File.exist?(TERRAFILE_PATH)
