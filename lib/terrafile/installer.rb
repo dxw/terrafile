@@ -1,14 +1,30 @@
 module Terrafile
   class Installer
+    MODULES_PATH = 'vendor/terraform_modules'.freeze
+    TERRAFILE_PATH = 'Terrafile'.freeze
+
     def call
-      puts 'No Terrafile found'
+      read_terrafile
+      create_modules_directory_if_needed
+    end
+
+    private
+
+    def read_terrafile
+      return YAML.safe_load(TERRAFILE_PATH) if File.exist?(TERRAFILE_PATH)
+
+      puts '[*] Terrafile does not exist'
       exit 1
+    end
+
+    def create_modules_directory_if_needed
+      return if Dir.exist?(MODULES_PATH)
+
+      puts "[*] Creating Terraform modules directory at '#{MODULES_PATH}'"
+      FileUtils.makedirs MODULES_PATH
     end
   end
 end
-
-# require 'yaml'
-# require 'fileutils'
 
 # def modules_path
 #   'vendor/terraform_modules'

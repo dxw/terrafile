@@ -85,12 +85,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aruba (>= 0.14.6)
-  bundler (>= 1.17.1)
-  pry-byebug (>= 3.6.0)
-  rake (>= 10.5.0)
-  rspec (>= 3.8.0)
-  rubocop (= 0.58.2)
+  aruba (~> 0.14)
+  bundler (~> 1.17)
+  pry-byebug (~> 3.6)
+  rake (~> 10.5)
+  rspec (~> 3.8)
+  rubocop (~> 0.58)
   terrafile!
 
 BUNDLED WITH
