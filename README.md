@@ -2,7 +2,7 @@
 
 This gem provides a `terrafile` executable (Ruby) to install a Terraform project's modules using `git`. 
 
-The idea of using a 'Terrafile' (like a 'Puppetfile' or a 'Gemfile') to manage a project's dependencies comes from Ben Snape and this code is largely taken from his blog post [http://bensnape.com/2016/01/14/terraform-design-patterns-the-terrafile/](http://bensnape.com/2016/01/14/terraform-design-patterns-the-terrafile/).
+The idea of using a 'Terrafile' (like a 'Puppetfile' or a 'Gemfile') to manage a project's dependencies comes from Ben Snape and this code is based on his blog post [http://bensnape.com/2016/01/14/terraform-design-patterns-the-terrafile/](http://bensnape.com/2016/01/14/terraform-design-patterns-the-terrafile/).
 
 Conventions:
 
@@ -57,4 +57,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Terrafile project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/terrafile/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Terrafile project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dxw/terrafile/blob/master/CODE_OF_CONDUCT.md).

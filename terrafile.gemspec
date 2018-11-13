@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.platform              = Gem::Platform::RUBY
   spec.required_ruby_version = '>= 2.5.1'
   spec.authors               = ['dxw']
-  spec.email                 = ['ops@dxw.net']
+  spec.email                 = ['systems@dxw.com']
   spec.summary               = 'Installs the modules listed in Terrafile'
   spec.description           = 'Terraform modules listed in Terrafile are installed in ' \
                                  'vendor/terraform_modules'
