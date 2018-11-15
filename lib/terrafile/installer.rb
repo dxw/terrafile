@@ -28,7 +28,7 @@ module Terrafile
       Dir.chdir(Terrafile::MODULES_PATH) do
         dependencies.each do |dependency|
           msg = "Checking out #{dependency.version} from #{dependency.source}"
-          Kernel.puts msg
+          Kernel.puts "[*] #{msg}"
           dependency.fetch
           dependency.checkout
         end

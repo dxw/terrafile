@@ -146,6 +146,43 @@ module Terrafile
 
           expect(Helper).to have_received(:run!).with('git checkout 1.2.3 1> /dev/null')
         end
+
+        describe 'error handling' do
+          context 'when git checkout reports a "reference is not a tree" error' do
+            let(:msg) { 'fatal: reference is not a tree:' }
+            let(:notice) do
+              "The 'version' should be the branch name or tag, " \
+                'rather than the SHA.'
+            end
+
+            before do
+              allow(Kernel).to receive(:puts)
+              allow(Helper).to receive(:run!).and_raise(Error, msg)
+            end
+
+            it 'logs the suspected use of a SHA rather than a tag or branch name' do
+              dependency.checkout
+              expect(Kernel).to have_received(:puts).with(/WARN: #{msg}/)
+              expect(Kernel).to have_received(:puts).with(/#{notice}/)
+            end
+
+            it 'allows execution to continue' do
+              expect { dependency.checkout }.not_to raise_error
+            end
+          end
+
+          context 'when git checkout reports some other error' do
+            let(:msg) { 'fatal: some other problem:' }
+
+            before do
+              allow(Helper).to receive(:run!).and_raise(Error, msg)
+            end
+
+            it 're-raises the Terraform::Error' do
+              expect { dependency.checkout }.to raise_error(Error, msg)
+            end
+          end
+        end
       end
     end
   end
