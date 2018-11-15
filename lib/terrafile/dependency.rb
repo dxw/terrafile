@@ -30,6 +30,11 @@ module Terrafile
       Dir.chdir(name) do
         Helper.run!("git checkout #{version} 1> /dev/null")
       end
+    rescue Error => error
+      raise unless error.message.match?(/reference is not a tree/)
+
+      Kernel.puts "[*] WARN: #{error} ." \
+        "The 'version' should be the branch name or tag, rather than the SHA."
     end
   end
 end
