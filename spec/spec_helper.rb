@@ -3,9 +3,8 @@ SimpleCov.start do
   minimum_coverage 100
 end
 require 'bundler/setup'
-require 'aruba/rspec'
 require 'terrafile'
-# require 'pry'
+require 'pry'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

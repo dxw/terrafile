@@ -26,7 +26,7 @@ module Terrafile
     end
 
     def self.clone(source, destination)
-      run!("git clone --depth 1 #{source} #{destination} &> /dev/null")
+      run!("git clone #{source} #{destination} 1> /dev/null")
     end
 
     def self.dir_exists?(path)
@@ -44,7 +44,7 @@ module Terrafile
     end
 
     def self.pull_repo
-      run!('git pull &> /dev/null')
+      run!('git pull 1> /dev/null')
     end
   end
 end

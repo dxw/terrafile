@@ -141,10 +141,10 @@ module Terrafile
           expect(Dir).to have_received(:chdir).with('terraform-of-mine')
         end
 
-        it 'checks out the right version of that dependency, suppressing output' do
+        it 'checks out the right version of that dependency, suppressing STDOUT' do
           dependency.checkout
 
-          expect(Helper).to have_received(:run!).with('git checkout 1.2.3 &> /dev/null')
+          expect(Helper).to have_received(:run!).with('git checkout 1.2.3 1> /dev/null')
         end
       end
     end

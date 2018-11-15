@@ -112,7 +112,7 @@ module Terrafile
     end
 
     describe '::clone(source, destination)' do
-      it 'checks out the given revision using run!' do
+      it 'checks out the given revision using run! suppressing STDOUT' do
         allow(Helper).to receive(:run!)
         source = 'git@github.com:org1/repo1'
         destination = 'terraform-aws-name1'
@@ -120,7 +120,7 @@ module Terrafile
         Helper.clone(source, destination)
 
         expect(Helper).to have_received(:run!)
-          .with("git clone --depth 1 #{source} #{destination} &> /dev/null")
+          .with("git clone #{source} #{destination} 1> /dev/null")
       end
     end
 
@@ -170,12 +170,12 @@ module Terrafile
     end
 
     describe '::pull_repo' do
-      it 'pulls the latest code without generating any output' do
+      it 'pulls the latest code suppressing STDOUT' do
         allow(Helper).to receive(:run!)
 
         Helper.pull_repo
 
-        expect(Helper).to have_received(:run!).with('git pull &> /dev/null')
+        expect(Helper).to have_received(:run!).with('git pull 1> /dev/null')
       end
     end
   end

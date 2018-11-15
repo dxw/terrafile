@@ -1,7 +1,5 @@
 module Terrafile
   class Installer
-    MODULES_PATH = 'vendor/terraform_modules'.freeze
-
     def initialize
       @dependencies = read_terrafile
     end
@@ -27,7 +25,7 @@ module Terrafile
     end
 
     def checkout_modules
-      Dir.chdir(Installer::MODULES_PATH) do
+      Dir.chdir(Terrafile::MODULES_PATH) do
         dependencies.each do |dependency|
           msg = "Checking out #{dependency.version} from #{dependency.source}"
           Kernel.puts msg

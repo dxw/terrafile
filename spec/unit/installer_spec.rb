@@ -65,7 +65,7 @@ module Terrafile
         context 'when the directory already exists' do
           before do
             allow(Helper).to receive(:dir_exists?)
-              .with(Installer::MODULES_PATH).and_return(true)
+              .with(Terrafile::MODULES_PATH).and_return(true)
           end
 
           it 'does not attempt to make the directory' do
@@ -77,7 +77,7 @@ module Terrafile
         context 'when the directory does NOT exist' do
           before do
             allow(Helper).to receive(:dir_exists?)
-              .with(Installer::MODULES_PATH).and_return(false)
+              .with(Terrafile::MODULES_PATH).and_return(false)
           end
 
           it 'notifies us of its intention to make the directory' do
@@ -87,7 +87,7 @@ module Terrafile
 
           it 'makes the directory' do
             Installer.new.call
-            expect(FileUtils).to have_received(:makedirs).with(Installer::MODULES_PATH)
+            expect(FileUtils).to have_received(:makedirs).with(Terrafile::MODULES_PATH)
           end
         end
       end
@@ -133,7 +133,7 @@ module Terrafile
 
         it 'changes to the module installation directory' do
           Installer.new.call
-          expect(Dir).to have_received(:chdir).with(Installer::MODULES_PATH)
+          expect(Dir).to have_received(:chdir).with(Terrafile::MODULES_PATH)
         end
 
         describe 'for each dependency' do

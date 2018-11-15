@@ -13,24 +13,14 @@ Gem::Specification.new do |spec|
   spec.summary               = 'Installs the modules listed in Terrafile'
   spec.description           = 'Terraform modules listed in Terrafile are installed in ' \
                                  'vendor/terraform_modules'
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage              = 'https://github.com/dxw/terrafile'
   spec.license               = 'MIT'
   spec.post_install_message  = 'Thanks for installing terrafile.'
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  # if spec.respond_to?(:metadata)
-  spec.metadata['credit'] = 'Original code and rationale found at: ' \
-    'http://bensnape.com/2016/01/14/terraform-design-patterns-the-terrafile/'
-  #   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
-  #   spec.metadata["homepage_uri"] = spec.homepage
-  #   spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  #   spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
-  # else
-  #   raise "RubyGems 2.0 or newer is required to protect against " \
-  #     "public gem pushes."
-  # end
+  if spec.respond_to?(:metadata)
+    spec.metadata['credit'] = 'Original code and rationale found at: ' \
+      'http://bensnape.com/2016/01/14/terraform-design-patterns-the-terrafile/'
+  end
 
   spec.files         = `git ls-files`.split("\n")
   spec.test_files    = `git ls-files -- spec/*`.split("\n")
