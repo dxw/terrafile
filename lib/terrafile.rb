@@ -9,4 +9,5 @@ require_relative 'terrafile/installer'
 
 module Terrafile
   TERRAFILE_PATH = 'Terrafile'.freeze
+  MODULES_PATH = File.join('vendor', 'terraform_modules').freeze
 end

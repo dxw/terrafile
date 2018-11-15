@@ -49,3 +49,4 @@ Metrics/ModuleLength:
 Metrics/BlockLength:
     Exclude:
       - 'spec/**/*'
+      - 'terrafile.gemspec'

@@ -8,5 +8,6 @@ task default: :test
 desc 'run specs, simplecov and rubocop'
 task :test do
   raise 'FAILURE: Failing specs or incomplete coverage!' unless system 'rspec'
+  raise 'FAILURE: Failing integration tests!' unless system 'cucumber'
   raise 'FAILURE: Rubocop violations!' unless system 'rubocop'
 end

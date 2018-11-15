@@ -28,7 +28,7 @@ module Terrafile
 
     def checkout
       Dir.chdir(name) do
-        Helper.run!("git checkout #{version} &> /dev/null")
+        Helper.run!("git checkout #{version} 1> /dev/null")
       end
     end
   end
