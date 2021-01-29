@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    terrafile (0.1.3)
+    terrafile (0.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -102,4 +102,4 @@ DEPENDENCIES
   terrafile!
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
