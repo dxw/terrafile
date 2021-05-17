@@ -10,9 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.6'
+      - uses: ruby/setup-ruby@v1
 
       - name: Configure Git
         run: |
@@ -22,5 +20,5 @@ jobs:
           mkdir -p "${HOME}/.config/git"
       - name: Run Tests
         run: |
-          bundle install --jobs=3 --retry=3 --deployment
+          bundle install --jobs=3 --retry=3
           bundle exec rake
