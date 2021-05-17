@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables   = ['terrafile']
 
   spec.add_development_dependency 'aruba',      '~> 0.14'
-  spec.add_development_dependency 'bundler',    '~> 1.17'
+  spec.add_development_dependency 'bundler',    '>= 2.1.0'
   spec.add_development_dependency 'pry-byebug', '~> 3.6'
   spec.add_development_dependency 'rake',       '~> 13.0'
   spec.add_development_dependency 'rspec',      '~> 3.8'
