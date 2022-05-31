@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name                  = 'terrafile'
   spec.version               = Terrafile::VERSION
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 2.5.1'
+  spec.required_ruby_version = '>= 2.7.6'
   spec.authors               = ['dxw']
   spec.email                 = ['systems@dxw.com']
   spec.summary               = 'Installs the modules listed in Terrafile'
