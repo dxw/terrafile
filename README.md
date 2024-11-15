@@ -37,7 +37,7 @@ to install the modules listed in `Terrafile` into `vendor/terraform_modules`.
 ## Dependencies
 
 - git
-- Ruby (>= 2.7.6)
+- Ruby (>= 3.1.6)
 
 ## Development
 

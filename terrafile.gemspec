@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name                  = 'terrafile'
   spec.version               = Terrafile::VERSION
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = '>= 2.7.6'
+  spec.required_ruby_version = '>= 3.1.6'
   spec.authors               = ['dxw']
   spec.email                 = ['systems@dxw.com']
   spec.summary               = 'Installs the modules listed in Terrafile'
@@ -28,11 +28,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.executables   = ['terrafile']
 
-  spec.add_development_dependency 'aruba',      '~> 0.14'
+  spec.add_development_dependency 'aruba',      '~> 2.2'
   spec.add_development_dependency 'bundler',    '>= 2.1.0'
   spec.add_development_dependency 'pry-byebug', '~> 3.6'
   spec.add_development_dependency 'rake',       '~> 13.0'
   spec.add_development_dependency 'rspec',      '~> 3.8'
-  spec.add_development_dependency 'rubocop',    '~> 0.58'
-  spec.add_development_dependency 'simplecov',  '~> 0.16'
+  spec.add_development_dependency 'rubocop',    '~> 1.68'
+  spec.add_development_dependency 'simplecov',  '~> 0.1'
 end
