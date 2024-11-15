@@ -12,7 +12,7 @@ Given('a valid Terrafile exists') do
 end
 
 When('I run the _terrafile_ command') do
-  run_simple('terrafile', fail_on_error: false)
+  run_command_and_stop('terrafile', fail_on_error: false)
 end
 
 Then('I should see that a _modules_ directory will be created') do
