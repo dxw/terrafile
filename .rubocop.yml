@@ -1,54 +1,54 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.7.6
+  TargetRubyVersion: 3.0
   # Exclude:
 
 Bundler/OrderedGems:
-    Enabled: false
+  Enabled: false
 
 Style/Alias:
-    Enabled: false
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
-    Enabled: false
+  Enabled: false
 
 Style/NumericLiterals:
-    Enabled: false
+  Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
-    EnforcedStyleForMultiline: comma
+  EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInHashLiteral:
-    EnforcedStyleForMultiline: comma
+  EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInArguments:
-    Enabled: false
+  Enabled: false
 
 Style/Documentation:
-    Enabled: false
+  Enabled: false
 
 Style/FormatStringToken:
-    Enabled: false
+  Enabled: false
 
 Layout/EmptyLineAfterGuardClause:
-    Enabled: false
+  Enabled: false
 
-Metrics/LineLength:
-    Max: 100
-    Exclude:
-      - 'spec/**/*'
-      - 'features/**/*'
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - 'spec/**/*'
+    - 'features/**/*'
 
 Metrics/MethodLength:
-    Exclude:
-      - 'spec/**/*'
+  Exclude:
+    - 'spec/**/*'
 
 Metrics/ModuleLength:
-    Exclude:
-      - 'spec/**/*'
+  Exclude:
+    - 'spec/**/*'
 
 Metrics/BlockLength:
-    Exclude:
-      - 'spec/**/*'
-      - 'terrafile.gemspec'
+  Exclude:
+    - 'spec/**/*'
+    - 'terrafile.gemspec'
